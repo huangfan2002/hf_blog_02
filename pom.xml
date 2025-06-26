@@ -49,6 +49,10 @@
         <lombok.version>1.18.28</lombok.version>
         <guava.version>31.1-jre</guava.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
+
+        <!--添加 jackson 工具，它用于将出入参转为 json 字符串：-->
+        <jackson.version>2.15.2</jackson.version>
+
     </properties>
 
     <!-- 统一依赖管理 -->
@@ -79,7 +83,25 @@
                 <version>${commons-lang3.version}</version>
             </dependency>
 
+<!--            &lt;!&ndash;引入logback&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-web</artifactId>-->
+<!--            </dependency>-->
 
+            <!-- Jackson -->
+            <!--jackson 工具，它用于将出入参转为 json 字符串：-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
