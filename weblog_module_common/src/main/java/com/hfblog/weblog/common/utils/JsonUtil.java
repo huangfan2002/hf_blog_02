@@ -1,4 +1,4 @@
-package com.hf_blog.weblog.common.utils;
+package com.hfblog.weblog.common.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

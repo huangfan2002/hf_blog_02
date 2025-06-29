@@ -1,16 +1,22 @@
 # 应用服务 WEB 访问端口
-server.port=8080
+#server.port=8080
 #spring:
 #    profiles:
 #        # 默认激活 dev 环境
 #        active: dev
-#spring:
-#    profiles:
-#        # 默认激活 dev 环境
-#        active: prod
+spring:
+    profiles:
+        # 默认激活 dev 环境
+        active: prod
+
+#    jackson:
+#        # 设置后台返参，若字段值为 null, 则不返回
+#        default-property-inclusion: non_null
+#        # 设置日期字段格式
+#        date-format: yyyy-MM-dd HH:mm:ss
 #=================================================================
 # log 日志
 #=================================================================
-#logging:
-#    config: classpath:logback-weblog.xml
+logging:
+    config: classpath:logback-weblog.xml
 
