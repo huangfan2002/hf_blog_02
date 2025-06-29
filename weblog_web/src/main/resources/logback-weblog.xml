@@ -9,10 +9,11 @@
 <!--    C:\Users\17355\Desktop\blog_hf\web_blog\hf_blog\z_log\log-->
 
 <!--    C:\\Users\\17355\\Desktop\\blog_hf\\web_blog\\logs-->
-<!--    <property name="LOG_FILE" value="C:\\Users\\17355\\Desktop\\blog_hf\\web_blog\\logs\\${appName}.%d{yyyy-MM-dd}"/>-->
-    <property name="LOG_FILE" value="/app/weblog/logs/${appName}.%d{yyyy-MM-dd}"/>
+    <property name="LOG_FILE" value="C:\\Users\\17355\\Desktop\\blog_hf\\web_blog\\logs\\${appName}.%d{yyyy-MM-dd}"/>
+<!--    <property name="LOG_FILE" value="/app/weblog/logs/${appName}.%d{yyyy-MM-dd}"/>-->
     <!--    <property name="LOG_FILE" value="/app/weblog/logs/${appName}.%d{yyyy-MM-dd}"/>-->
-    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"/>
+    <property name="FILE_LOG_PATTERN" value="[TraceId: %X{traceId}] %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"/>
+<!--    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"/>-->
     <!--<property name="CONSOLE_LOG_PATTERN" value="${FILE_LOG_PATTERN}"/>-->
 
     <!-- 按照每天生成日志文件 -->

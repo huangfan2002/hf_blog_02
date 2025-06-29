@@ -1,7 +1,5 @@
-package com.hf_blog.weblog.common.aspect;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hf_blog.weblog.common.utils.JsonUtil;
+package com.hfblog.weblog.common.aspect;
+import com.hfblog.weblog.common.utils.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -21,7 +19,7 @@ import java.util.stream.Collectors;
 public class ApiOperationLogAspect {
 
     /** 以自定义 @ApiOperationLog 注解为切点，凡是添加 @ApiOperationLog 的方法，都会执行环绕中的代码 */
-    @Pointcut("@annotation(com.hf_blog.weblog.common.aspect.ApiOperationLog)")
+    @Pointcut("@annotation(com.hfblog.weblog.common.aspect.ApiOperationLog)")
     public void apiOperationLog() {}
 
     /**
@@ -37,6 +35,15 @@ public class ApiOperationLogAspect {
             long startTime = System.currentTimeMillis();
 
             // MDC
+            //MDC（Mapped Diagnostic Context）是 SLF4J 和 log4j 等日志框架提供的一种方案，
+            // 它允许开发者将一些特定的数据（如用户ID、请求ID等）存储到当前线程的上下文中，
+            // 使得这些数据可以在日志消息中使用。这对于跟踪多线程或高并发应用中的单个请求非常有用。
+
+            //在高并发环境中，由于多个请求可能同时处理，日志消息可能会交错在一起。
+            //使用MDC，我们可以为每个请求分配一个唯一的标识，并将该标识添加到每条日志消息中，
+            //从而方便地区分和跟踪每个请求的日志。
+
+            // traceId 表示跟踪 ID， 值这里直接用的 UUID
             MDC.put("traceId", UUID.randomUUID().toString());
 
             // 获取被请求的类和方法

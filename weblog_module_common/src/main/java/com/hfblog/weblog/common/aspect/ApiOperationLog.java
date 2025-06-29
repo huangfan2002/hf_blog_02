@@ -1,4 +1,4 @@
-package com.hf_blog.weblog.common.aspect;
+package com.hfblog.weblog.common.aspect;
 
 import java.lang.annotation.*;
 
