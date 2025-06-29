@@ -9,5 +9,5 @@
 ##=================================================================
 # log 日志
 #=================================================================
-#logging:
-#    config: classpath:logback-weblog.xml
+logging:
+    config: classpath:logback-weblog.xml
