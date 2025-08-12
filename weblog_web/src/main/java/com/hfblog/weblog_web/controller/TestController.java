@@ -29,11 +29,25 @@ import java.util.stream.Collectors;
 @RestController
 @Api(tags = "首页模块")
 public class TestController {
-    @GetMapping("/")
-    public String index() {
-        return "服务已启动，欢迎使用 Weblog 博客系统！";
-    }
+//    @GetMapping("/")
+//    public String index() {
+//        return "服务已启动，欢迎使用 Weblog 博客系统！";
+//    }
 
+    @PostMapping("/admin/test")
+    @ApiOperationLog(description = "测试接口")
+    @ApiOperation(value = "测试接口")
+    public Response test(@RequestBody @Validated User user) {
+        // 打印入参
+        log.info(JsonUtil.toJsonString(user));
+
+        // 设置三种日期字段值
+        user.setCreateTime(LocalDateTime.now());
+        user.setUpdateDate(LocalDate.now());
+        user.setTime(LocalTime.now());
+
+        return Response.success(user);
+    }
 
 //    @PostMapping("/test")
 //    @ApiOperationLog(description = "测试接口")
@@ -80,20 +94,20 @@ public class TestController {
 //        return Response.success();
 //    }
 
-    @PostMapping("/test")
-    @ApiOperationLog(description = "测试接口")
-    @ApiOperation(value = "测试接口")
-    public Response test(@RequestBody @Validated User user) {
-        // 打印入参
-        log.info(JsonUtil.toJsonString(user));
-
-        // 设置三种日期字段值
-        user.setCreateTime(LocalDateTime.now());
-        user.setUpdateDate(LocalDate.now());
-        user.setTime(LocalTime.now());
-
-        return Response.success(user);
-    }
+//    @PostMapping("/admin/test")
+//    @ApiOperationLog(description = "测试接口")
+//    @ApiOperation(value = "测试接口")
+//    public Response test(@RequestBody @Validated User user) {
+//        // 打印入参
+//        log.info(JsonUtil.toJsonString(user));
+//
+//        // 设置三种日期字段值
+//        user.setCreateTime(LocalDateTime.now());
+//        user.setUpdateDate(LocalDate.now());
+//        user.setTime(LocalTime.now());
+//
+//        return Response.success(user);
+//    }
 
 
 
